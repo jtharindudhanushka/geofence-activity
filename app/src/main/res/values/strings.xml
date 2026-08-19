@@ -19,4 +19,38 @@
     <string name="notification_entered_body">Arrived at %1$s, %2$s</string>
     <string name="notification_left_title">Left %1$s</string>
     <string name="notification_left_body">Departed %1$s, %2$s</string>
+
+    <!-- ===== DEV D ===== -->
+    <string name="onboarding_welcome_title">Welcome to Zonely</string>
+    <string name="onboarding_welcome_desc">Define circular zones and get alerted when you enter or exit them, with a full history of every crossing.</string>
+    <string name="onboarding_get_started">Get Started</string>
+
+    <string name="onboarding_fg_title">Location Access</string>
+    <string name="onboarding_fg_desc">Zonely needs to know where you are to alert you when you enter or exit your zones.</string>
+    <string name="onboarding_fg_rationale">This is required for the app to function. Please grant location access.</string>
+    <string name="onboarding_grant_permission">Grant Permission</string>
+    <string name="onboarding_open_settings">Open Settings</string>
+    <string name="onboarding_continue_limited">Continue with limited functionality</string>
+
+    <string name="onboarding_bg_title">Background Location</string>
+    <string name="onboarding_bg_desc">To alert you even when the app is closed, Zonely needs \"Always Allow\" location access.</string>
+    <string name="onboarding_bg_api30_instruction">On the next screen, please select \"Allow all the time\" to enable background tracking.</string>
+
+    <string name="onboarding_notif_title">Notifications</string>
+    <string name="onboarding_notif_desc">Zonely uses notifications to alert you immediately when a zone transition occurs.</string>
+
+    <string name="onboarding_loc_services_title">Location Services</string>
+    <string name="onboarding_loc_services_desc">System-wide location services are disabled. Please enable them to track your zones.</string>
+    <string name="onboarding_enable_location">Enable Location</string>
+
+    <string name="history_title">History</string>
+    <string name="history_empty_state">No crossings yet. Move across a zone boundary and it will show up here.</string>
+    <string name="history_entered">Entered %s</string>
+    <string name="history_left">Left %s</string>
+
+    <string name="banner_missing_fg">Location permission missing</string>
+    <string name="banner_missing_bg">Background location disabled</string>
+    <string name="banner_notif_off">Notifications are off</string>
+    <string name="banner_loc_services_off">Location services off</string>
+    <string name="banner_fix">Fix</string>
 </resources>
