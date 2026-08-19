@@ -2,7 +2,7 @@ package com.group5.zonely.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.group5.zonely.domain.geo.GeofenceRegistrar
+import com.group5.zonely.domain.geo.GeofenceSimulator
 import com.group5.zonely.domain.geo.LocationProvider
 import com.group5.zonely.domain.geo.PermissionChecker
 import com.group5.zonely.domain.model.*
@@ -46,7 +46,7 @@ class HomeViewModel @Inject constructor(
     private val permissionChecker: PermissionChecker,
     private val locationProvider: LocationProvider,
     private val settingsRepository: SettingsRepository,
-    private val geofenceRegistrar: GeofenceRegistrar
+    private val geofenceSimulator: GeofenceSimulator
 ) : ViewModel() {
 
     val uiState: StateFlow<HomeUiState> = combine(
@@ -76,7 +76,7 @@ class HomeViewModel @Inject constructor(
 
     fun simulateTransition(zoneId: String, transition: TransitionType) {
         viewModelScope.launch {
-            geofenceRegistrar.simulateTransition(zoneId, transition)
+            geofenceSimulator.simulateTransition(zoneId, transition)
         }
     }
 

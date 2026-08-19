@@ -246,6 +246,12 @@ fun HeroStatusCard(
                 text = if (activeZone != null) "Inside ${activeZone.name}" else "Outside all zones",
                 style = MaterialTheme.typography.headlineLarge
             )
+            if (activeZone != null) {
+                Text(
+                    text = "Radius: ${activeZone.radiusMeters.toInt()} m",
+                    style = MaterialTheme.typography.titleMedium
+                )
+            }
             if (distanceToEdge != null) {
                 Text(
                     text = "${distanceToEdge.toInt()} m from the edge",
