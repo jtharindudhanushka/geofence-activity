@@ -2,6 +2,7 @@ package com.group5.zonely.ui.components
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -24,7 +25,7 @@ fun StatusPill(
     Surface(
         color = containerColor,
         contentColor = contentColor,
-        shape = MaterialTheme.shapes.full,
+        shape = CircleShape,
         modifier = modifier
     ) {
         Text(

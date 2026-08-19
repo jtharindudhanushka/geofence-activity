@@ -1,6 +1,8 @@
 package com.group5.zonely.ui.theme
 
 import androidx.compose.ui.graphics.Color
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 
 // Light Scheme
 val primaryLight = Color(0xFF006874)
@@ -89,9 +91,6 @@ val inverseOnSurfaceDark = Color(0xFF2C3132)
 val inversePrimaryDark = Color(0xFF006874)
 
 val scrimDark = Color(0xFF000000)
-
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.lightColorScheme
 
 val LightColorScheme = lightColorScheme(
     primary = primaryLight,
