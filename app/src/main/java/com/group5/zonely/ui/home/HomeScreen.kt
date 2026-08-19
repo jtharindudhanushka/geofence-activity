@@ -10,12 +10,16 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.group5.zonely.domain.model.GeofenceZone
+import com.group5.zonely.domain.model.ThemeMode
 import com.group5.zonely.domain.model.TransitionType
 import com.group5.zonely.ui.components.*
+import com.group5.zonely.ui.theme.ZonelyTheme
 import com.group5.zonely.ui.theme.LocalSpacing
 
 @Composable
@@ -88,12 +92,7 @@ fun HomeScreen(
 
                 if (uiState.permissionState?.canRegisterGeofences == false) {
                     item {
-                        PermissionBanner {
-                            Text(
-                                text = "Background location permission missing.",
-                                style = MaterialTheme.typography.bodyMedium
-                            )
-                        }
+                        PermissionBanner(state = uiState.permissionState)
                     }
                 }
 

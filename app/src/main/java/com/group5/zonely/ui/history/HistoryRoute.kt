@@ -3,6 +3,7 @@ package com.group5.zonely.ui.history
 import android.text.format.DateUtils
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -136,7 +137,7 @@ fun HistoryRow(event: GeofenceEvent) {
         leadingContent = {
             Surface(
                 modifier = Modifier.size(12.dp),
-                shape = MaterialTheme.shapes.full,
+                shape = CircleShape,
                 color = MaterialTheme.colorScheme.primary
             ) {}
         },

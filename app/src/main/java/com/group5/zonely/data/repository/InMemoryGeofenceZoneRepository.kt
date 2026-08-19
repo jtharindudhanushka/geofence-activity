@@ -42,7 +42,7 @@ class InMemoryGeofenceZoneRepository @Inject constructor() : GeofenceZoneReposit
 
     override fun observeZone(id: String): Flow<GeofenceZone?> = zones.map { it[id] }
 
-    override fun getZone(id: String): GeofenceZone? = zones.value[id]
+    override suspend fun getZone(id: String): GeofenceZone? = zones.value[id]
 
     override suspend fun getActiveZones(): List<GeofenceZone> = zones.value.values.filter { it.isActive }
 

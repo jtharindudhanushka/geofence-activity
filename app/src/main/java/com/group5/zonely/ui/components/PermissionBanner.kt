@@ -86,7 +86,7 @@ fun PermissionBanner(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Row(verticalAlignment = Alignment.CenterHorizontally, modifier = Modifier.weight(1f)) {
+                Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.weight(1f)) {
                     Icon(
                         imageVector = if (!state.canUseForegroundLocation || !state.locationServicesEnabled)
                             Icons.Default.Error
