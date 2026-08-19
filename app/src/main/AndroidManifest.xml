@@ -26,7 +26,9 @@
         </activity>
 
         <!-- ===== DEV B RECEIVERS ===== -->
-        <!-- Dev B will add receivers here -->
+        <receiver
+            android:name=".geo.GeofenceBroadcastReceiver"
+            android:exported="false" />
 
     </application>
 

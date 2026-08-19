@@ -5,4 +5,18 @@
     <!-- ===== DEV A ===== -->
 
     <!-- ===== DEV C ===== -->
+
+    <!-- ===== DEV B ===== -->
+    <string name="error_geofence_not_available">Geofence service is not available now. Check if location services are enabled.</string>
+    <string name="error_too_many_geofences">You have too many geofences registered.</string>
+    <string name="error_too_many_pending_intents">Too many geofence operations in progress.</string>
+    <string name="error_insufficient_location_permission">Zonely needs background location permission to monitor geofences.</string>
+    <string name="error_geofence_unknown">An unknown geofencing error occurred.</string>
+
+    <string name="notification_channel_name">Geofence Alerts</string>
+    <string name="notification_channel_description">Notifications when entering or exiting zones</string>
+    <string name="notification_entered_title">Entered %1$s</string>
+    <string name="notification_entered_body">Arrived at %1$s, %2$s</string>
+    <string name="notification_left_title">Left %1$s</string>
+    <string name="notification_left_body">Departed %1$s, %2$s</string>
 </resources>

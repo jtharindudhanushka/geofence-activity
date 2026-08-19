@@ -1,49 +1,50 @@
 package com.group5.zonely.geo.di
 
+import android.content.Context
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.GeofencingClient
+import com.google.android.gms.location.LocationServices
 import com.group5.zonely.domain.geo.GeofenceRegistrar
 import com.group5.zonely.domain.geo.LocationProvider
 import com.group5.zonely.domain.geo.PermissionChecker
-import com.group5.zonely.domain.model.PermissionState
-import com.group5.zonely.domain.model.SimpleLocation
-import com.group5.zonely.domain.model.GeofenceZone
+import com.group5.zonely.geo.FusedLocationProviderImpl
+import com.group5.zonely.geo.GeofenceRegistrarImpl
+import com.group5.zonely.geo.PermissionCheckerImpl
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.flowOf
 import javax.inject.Singleton
-
-// OWNER: Dev B - replace these stubs with real implementations.
 
 @Module
 @InstallIn(SingletonComponent::class)
-object GeoModule {
+abstract class GeoModule {
 
-    @Provides
+    @Binds
     @Singleton
-    fun provideGeofenceRegistrar(): GeofenceRegistrar = object : GeofenceRegistrar {
-        override suspend fun register(zone: GeofenceZone): Result<Unit> = Result.success(Unit)
-        override suspend fun unregister(zoneId: String): Result<Unit> = Result.success(Unit)
-        override suspend fun reregisterAll(zones: List<GeofenceZone>): Result<Unit> = Result.success(Unit)
-        override suspend fun unregisterAll(): Result<Unit> = Result.success(Unit)
-    }
+    abstract fun bindGeofenceRegistrar(impl: GeofenceRegistrarImpl): GeofenceRegistrar
 
-    @Provides
+    @Binds
     @Singleton
-    fun provideLocationProvider(): LocationProvider = object : LocationProvider {
-        override suspend fun currentLocation(): Result<SimpleLocation> = 
-            Result.success(SimpleLocation(0.0, 0.0, 0f, System.currentTimeMillis()))
-        override fun locationUpdates(intervalMillis: Long): Flow<SimpleLocation> = flowOf()
-    }
+    abstract fun bindLocationProvider(impl: FusedLocationProviderImpl): LocationProvider
 
-    @Provides
+    @Binds
     @Singleton
-    fun providePermissionChecker(): PermissionChecker = object : PermissionChecker {
-        private val state = MutableStateFlow(PermissionState(false, false, false, false, false))
-        override fun current(): PermissionState = state.value
-        override fun observe(): Flow<PermissionState> = state
-        override fun refresh() {}
+    abstract fun bindPermissionChecker(impl: PermissionCheckerImpl): PermissionChecker
+
+    companion object {
+        @Provides
+        @Singleton
+        fun provideGeofencingClient(@ApplicationContext context: Context): GeofencingClient {
+            return LocationServices.getGeofencingClient(context)
+        }
+
+        @Provides
+        @Singleton
+        fun provideFusedLocationProviderClient(@ApplicationContext context: Context): FusedLocationProviderClient {
+            return LocationServices.getFusedLocationProviderClient(context)
+        }
     }
 }
