@@ -15,8 +15,8 @@ import com.group5.zonely.domain.model.ThemeMode
 
 @Composable
 fun ZonelyTheme(
-    themeMode: ThemeMode,
-    dynamicColor: Boolean,
+    themeMode: ThemeMode = ThemeMode.SYSTEM,
+    dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
     val darkTheme = when (themeMode) {
